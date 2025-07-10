@@ -1,9 +1,12 @@
-const About = ()=>{
-    return (
-        <div className="home">
-            <h1>Welcome to the Home Page</h1>
-            <p>This is the main page of our application.</p>
-        </div>
-    );
-}
+import useStore from "@/store/index";
+const About = () => {
+  const { count, increment, decrement } = useStore();
+  return (
+    <div>
+      <button onClick={increment}>+</button>
+      <span>{count}</span>
+      <button onClick={decrement}>-</button>
+    </div>
+  );
+};
 export default About;

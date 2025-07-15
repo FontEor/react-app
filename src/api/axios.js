@@ -52,6 +52,7 @@ function cancelPendingRequest(config) {
 // 请求拦截器
 instance.interceptors.request.use(
   (config) => {
+    console.log(config,'config::')
     // 取消重复请求
     cancelPendingRequest(config);
     // 添加当前请求到待处理列表

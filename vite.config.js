@@ -7,10 +7,10 @@ const __dirname = dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-   // 使用 import.meta.url 获取当前目录
-  const envDir = fileURLToPath(new URL('./', import.meta.url))
-   // 加载环境变量
-  const env = loadEnv(mode, envDir, '')
+  // 使用 import.meta.url 获取当前目录
+  const envDir = fileURLToPath(new URL("./", import.meta.url));
+  // 加载环境变量
+  const env = loadEnv(mode, envDir, "");
   return {
     plugins: [react()],
     define: {
@@ -22,6 +22,15 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve(__dirname, "./src"),
         "#": path.resolve(__dirname, "./utils"),
       },
+    },
+    server: {
+      // proxy: {
+      //   "/api": {
+      //     target: "http://localhost:5173",
+      //     changeOrigin: true,
+      //     rewrite: (path) => path.replace(/^\/api/, "/api"),
+      //   },
+      // },
     },
   };
 });

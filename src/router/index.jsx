@@ -4,7 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('@/views/pages/Home'));
 const About = lazy(() => import('@/views/pages/About'));
-import Login from '@/views/login/index.jsx';
+const Login = lazy(() => import('@/views/login/index.jsx'));
+const Info = lazy(() => import('@/views/pages/Info'));
+const NotFound = lazy(() => import('@/views/404/404.jsx'));
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/info" element={<Info />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

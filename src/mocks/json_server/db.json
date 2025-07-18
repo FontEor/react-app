@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "2",
+      "title": "React入门",
+      "author": "张三"
+    },
+    {
+      "id": "99e8",
+      "title": "新文章",
+      "author": "李四"
+    },
+    {
+      "id": "964f",
+      "title": "新文章",
+      "author": "李四"
+    },
+    {
+      "id": "74af",
+      "title": "新文章",
+      "author": "李四"
+    },
+    {
+      "id": "f334",
+      "title": "新文章",
+      "author": "李四"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "很好用",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

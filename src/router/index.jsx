@@ -1,25 +1,44 @@
+import { Suspense, lazy } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "@/views/layout/index.jsx";
 
-import { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+const Home = lazy(() => import("@/views/pages/Home"));
+const About = lazy(() => import("@/views/pages/About"));
+const Login = lazy(() => import("@/views/login/index.jsx"));
+const Info = lazy(() => import("@/views/pages/Info"));
+const NotFound = lazy(() => import("@/views/404/404.jsx"));
 
-const Home = lazy(() => import('@/views/pages/Home'));
-const About = lazy(() => import('@/views/pages/About'));
-const Login = lazy(() => import('@/views/login/index.jsx'));
-const Info = lazy(() => import('@/views/pages/Info'));
-const NotFound = lazy(() => import('@/views/404/404.jsx'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />, // 使用布局组件
+    children: [
+      {
+        path: "/",
+        element: <Home />, // 默认子路由
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/info",
+        element: <Info />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/info" element={<Info />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

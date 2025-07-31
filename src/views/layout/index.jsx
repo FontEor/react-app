@@ -1,6 +1,6 @@
-import React from "react";
 import { Flex, Layout } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
+import { Outlet } from "react-router-dom";
 const headerStyle = {
   textAlign: "center",
   color: "#fff",
@@ -15,6 +15,7 @@ const contentStyle = {
   lineHeight: "120px",
   color: "#fff",
   backgroundColor: "#0958d9",
+  maxHeight: "calc(100vh - 64px - 64px)", // 减去 Header 和 Footer 的高度
 };
 const siderStyle = {
   textAlign: "center",
@@ -26,25 +27,26 @@ const footerStyle = {
   textAlign: "center",
   color: "#fff",
   backgroundColor: "#4096ff",
+  height: 64,
 };
 const layoutStyle = {
   borderRadius: 8,
   overflow: "hidden",
-  width: "calc(50% - 8px)",
-  maxWidth: "calc(50% - 8px)",
 };
-const App = () => (
+const MainLayout = () => (
   <Flex gap="middle" wrap>
     <Layout style={layoutStyle}>
-      <Sider width="25%" style={siderStyle}>
+      <Sider width="15%" style={siderStyle}>
         Sider
       </Sider>
       <Layout>
         <Header style={headerStyle}>Header</Header>
-        <Content style={contentStyle}>Content</Content>
+        <Content style={contentStyle}>
+          <Outlet />
+        </Content>
         <Footer style={footerStyle}>Footer</Footer>
       </Layout>
     </Layout>
   </Flex>
 );
-export default App;
+export default MainLayout;

@@ -1,6 +1,7 @@
 import { Flex, Layout } from "antd";
-const { Header, Footer, Sider, Content } = Layout;
 import { Outlet } from "react-router-dom";
+import Settings from "./setting";
+const { Header, Footer, Sider, Content } = Layout;
 const headerStyle = {
   textAlign: "center",
   color: "#fff",
@@ -46,6 +47,7 @@ const MainLayout = () => (
         </Content>
         <Footer style={footerStyle}>Footer</Footer>
       </Layout>
+      <Settings></Settings>
     </Layout>
   </Flex>
 );

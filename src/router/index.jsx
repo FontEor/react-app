@@ -1,6 +1,7 @@
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainLayout from "@/views/layout/index.jsx";
+// import MainLayout from "@/layout/index.jsx";
+import Theme from "@/theme/index.jsx";
 
 const Home = lazy(() => import("@/views/pages/Home"));
 const About = lazy(() => import("@/views/pages/About"));
@@ -11,7 +12,7 @@ const NotFound = lazy(() => import("@/views/404/404.jsx"));
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />, // 使用布局组件
+    element: <Theme />, // 使用布局组件
     children: [
       {
         path: "/",

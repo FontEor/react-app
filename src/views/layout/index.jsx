@@ -30,7 +30,7 @@ const footerStyle = {
   height: 64,
 };
 const layoutStyle = {
-  borderRadius: 8,
+  // borderRadius: 8,
   overflow: "hidden",
 };
 const MainLayout = () => (
